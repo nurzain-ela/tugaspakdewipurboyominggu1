@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Program Grade Nilai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        input {
+            padding: 5px;
+            width: 150px;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Penentu Grade Nilai</h3>
+    
+    <label for="inputNilai">Masukkan Nilai (0 - 100): </label>
+    <input type="number" id="inputNilai" placeholder="Contoh: 85">
+    <button onclick="hitungGrade()">Cek Nilai</button>
+
+    <br><br>
+    
+    <div id="hasil"></div>
+
+    <script>
+        function hitungGrade() {
+            let nilai = document.getElementById("inputNilai").value;
+            let hasilDiv = document.getElementById("hasil");
+            
+            let grade = "";
+            let predikat = "";
+            if (nilai === "" || nilai < 0 || nilai > 100) {
+                hasilDiv.innerHTML = "<em>Silakan masukkan angka yang valid (0 - 100).</em>";
+                return;
+            }
+            nilai = parseInt(nilai);
+            if (nilai >= 85 && nilai <= 100) {
+                grade = "A";
+                predikat = "Sangat Baik";
+            } else if (nilai >= 70 && nilai < 85) {
+                grade = "B";
+                predikat = "Baik";
+            } else if (nilai >= 55 && nilai < 70) {
+                grade = "C";
+                predikat = "Cukup";
+            } else if (nilai >= 40 && nilai < 55) {
+                grade = "D";
+                predikat = "Kurang";
+            } else {
+                grade = "E";
+                predikat = "Gagal / Tidak Lulus";
+            }
+            hasilDiv.innerHTML = 
+                "Angka yang dimasukkan: <b>" + nilai + "</b><br>" +
+                "Grade: <b>" + grade + "</b><br>" +
+                "Keterangan: <b>" + predikat + "</b>";
+        }
+    </script>
+
+</body>
+</html>

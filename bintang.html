@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Pola Bintang 1 - 5</title>
+    <style>
+
+        body {
+            font-family: monospace;
+            font-size: 16px;
+            margin: 20px;
+        }
+        h3 {
+            font-family: Arial, sans-serif;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Pola 1 (Segitiga Kiri Bawah)</h3>
+    <div id="pola1"></div>
+
+    <h3>Pola 2 (Segitiga Kiri Atas)</h3>
+    <div id="pola2"></div>
+
+    <h3>Pola 3 (Segitiga Kanan Bawah)</h3>
+    <div id="pola3"></div>
+
+    <h3>Pola 4 (Segitiga Kanan Atas)</h3>
+    <div id="pola4"></div>
+
+    <h3>Pola 5 (Piramida)</h3>
+    <div id="pola5"></div>
+
+    <script>
+        let baris = 5; 
+
+        // Pola 1
+        let hasil1 = "";
+        for (let i = 1; i <= baris; i++) {
+            for (let j = 1; j <= i; j++) {
+                hasil1 += "*";
+            }
+            hasil1 += "<br>";
+        }
+        document.getElementById("pola1").innerHTML = hasil1;
+
+        // Pola 2
+        let hasil2 = "";
+        for (let i = 1; i <= baris; i++) {
+            for (let j = baris; j >= i; j--) {
+                hasil2 += "*";
+            }
+            hasil2 += "<br>";
+        }
+        document.getElementById("pola2").innerHTML = hasil2;
+
+        // Pola 3
+        let hasil3 = "";
+        for (let i = 1; i <= baris; i++) {
+            for (let j = 1; j <= baris - i; j++) {
+                hasil3 += "&nbsp;&nbsp;"; // Spasi HTML
+            }
+            for (let k = 1; k <= i; k++) {
+                hasil3 += "* ";
+            }
+            hasil3 += "<br>";
+        }
+        document.getElementById("pola3").innerHTML = hasil3;
+
+        // Pola 4
+        let hasil4 = "";
+        for (let i = 1; i <= baris; i++) {
+            for (let j = 1; j < i; j++) {
+                hasil4 += "&nbsp;&nbsp;";
+            }
+            for (let k = baris; k >= i; k--) {
+                hasil4 += "* ";
+            }
+            hasil4 += "<br>";
+        }
+        document.getElementById("pola4").innerHTML = hasil4;
+
+        // Pola 5
+        let hasil5 = "";
+        for (let i = 1; i <= baris; i++) {
+            for (let j = 1; j <= baris - i; j++) {
+                hasil5 += "&nbsp;";
+            }
+            for (let k = 1; k <= i; k++) {
+                hasil5 += "* ";
+            }
+            hasil5 += "<br>";
+        }
+        document.getElementById("pola5").innerHTML = hasil5;
+
+    </script>
+</body>
+</html>
